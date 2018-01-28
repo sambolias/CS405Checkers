@@ -8,16 +8,22 @@ class Piece
     int row, col;
 public:
     Piece(int r, int c);
-    void move(int r, int c);
+    std::pair<int, int> getPos();
+    void move(std::pair<int, int> to);
 };
 
-
+class Board;
 class Player
 {
-    std::vector<Piece> pieces;
-public:
+public: //bad
+    int color;                  //from              //to
+    std::vector<std::pair<std::pair<int,int>, std::pair<int,int>>> moves;
+
+    std::vector<Piece> pieces;    //needs interface with board so this can be private 
     Player(int color);
-    void move(std::pair<int, int> from, std::pair<int, int> to);
+    std::vector<std::vector<char>> getMoves(const Board & board);
+    void selectMove(int move);
+    //void move(int piece, std::pair<int, int> to);
 };
 
 class Board
@@ -26,20 +32,24 @@ class Board
     
 public:
     Board();
-    //board(std::vector<std::vector<char>> & saved) for save
+    Board(const std::vector<Player> &players);
+    //board(std::vector<char> & saved) for save
 
-    void updateBoard(Player &a, Player &b);
-    bool checkMove(std::pair<int, int> from, std::pair<int, int> to);
+    void updateBoard(const std::vector<char> &move);
+    bool checkMove(std::pair<int, int> from, std::pair<int, int> to) const;
+    std::vector<char> getTranslatedArray(std::pair<int, int> from, std::pair<int, int> to) const;
     std::vector<std::vector<char>> getBoard();
+    //std::vector<char> getArray();
 };
 
 class Game
 {
     std::vector<Player> players;
+    
     Board board;
     
     void draw();
-    std::pair<std::pair<int, int>, std::pair<int, int>> getMove();
+    //std::vector<std::vector<char>> getMoves(Player & player);
 
 public:
     Game();
