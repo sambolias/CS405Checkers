@@ -58,6 +58,15 @@ vector<vector<char>> Player::getMoves(const Board & board)
             coords.push_back(pair<vec2,vec2>(from, to));
             boards.push_back(board.getTranslatedArray(from, to));
         }
+        //sloppy
+        to = { from.first + direction,
+                    from.second - 1};
+        //TODO add jump logic
+        if(board.checkMove(from, to))
+        {
+            coords.push_back(pair<vec2,vec2>(from, to));
+            boards.push_back(board.getTranslatedArray(from, to));
+        }
     }
     moves = coords;
     return boards;
@@ -100,6 +109,7 @@ Board::Board(const vector<Player> & players)
 }
 void Board::updateBoard(const vector<char> &move)
 {
+    cout<<move.size()<<"\n";
     int i = 0;
     int r = 0;
     int c = 0;
@@ -113,7 +123,10 @@ void Board::updateBoard(const vector<char> &move)
             if((r%2) && (c%2))  //odd rows have odd red spaces
              { c++; continue; }
 
-            squares[r][c] = move[i];
+            char square = move[i];
+            if(square == ' ')
+                square = '-';
+            squares[r][c] = square;
             i++;
             c++;
         }
@@ -228,7 +241,7 @@ void Game::play()
         if(turn < 1)
             turn++;
         else turn = 0;
-        system("sleep 1");
+        system("sleep 2");
         
     }
 
