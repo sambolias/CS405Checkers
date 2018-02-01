@@ -42,13 +42,13 @@ void BoardDisplay::displayPieces(std::vector<std::vector<char>> board)
 		{
 			// todo update this for whatever type of board is being passed in, but it should work as is
 			char type = board[x][y];
-			if (type == '-') // empty space
+			if (type == Board::EMPTY)
 			{
 				tiles[x][y]->removePiece();
 			}
 			else
 			{
-				int color = std::tolower(type) == 'r'; // black = 0, red = 1
+				int color = std::tolower(type) == Board::RED; // black = 0, red = 1
 				bool king = std::isupper(type); // king or not
 				tiles[x][y]->displayPiece(color, king);
 			}

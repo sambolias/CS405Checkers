@@ -2,9 +2,7 @@
 #include "BoardDisplay.h"
 
 #include <utility>
-using std::pair;
 #include <QApplication>
-#include "checkers.hpp"
 
 // temporary to show use of gui
 std::vector<std::vector<char>> generateBoard()
@@ -14,7 +12,7 @@ std::vector<std::vector<char>> generateBoard()
 	{
 		for (int y = 0; y < 8; y++)
 		{
-			board[x][y] = '-';
+			board[x][y] = Board::EMPTY;
 		}
 	}
 	return board;
@@ -24,20 +22,18 @@ std::vector<std::vector<char>> generateBoard()
 void GameManager::startNewGame()
 {
 	playing = true;
+	display->displayPieces(game.GetBoard().GetBoardAsMatrix());
 
-	game = Game();
-	std::vector<std::vector<char>> matrix = game.getBoard();
-	display->displayPieces(matrix);
-
-	while (!game.gameOver && playing)
+	while (playing)
 	{
 		if (moved)
 		{
-			game.calculateMoves();
-			game.chooseRandom();
-			game.nextTurn();
-			matrix = game.getBoard();
-			display->displayPieces(matrix);
+			game.TakeNextTurn();
+			if (game.IsOver())
+				break;
+
+			auto board = game.GetBoard();
+			display->displayPieces(board.GetBoardAsMatrix());
 			moved = false;
 			/*if(!game.getPlayer().comp)	//only wait for move if not computer player
 				moved = false;
@@ -53,12 +49,10 @@ void GameManager::startNewGame()
 
 	}
 
-	std::string winner = ((game.turn != 0) ? "RED" : "BLACK");
+	std::string winner = ((game.GetTurn() == game.RED_TURN) ? "BLACK" : "RED");
 	std::cout << winner << " won\n";
 	//game over clears board for now
-	matrix = generateBoard();
-	display->displayPieces(matrix);
-	
+	display->displayPieces(generateBoard());
 }
 
 

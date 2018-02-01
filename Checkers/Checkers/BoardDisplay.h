@@ -3,6 +3,7 @@
 
 #include "TileDisplay.h"
 #include "GameManager.h"
+#include "Board.hpp"
 #include <QWidget>
 #include <QAction>
 #include <QMainWindow>

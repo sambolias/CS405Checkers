@@ -30,14 +30,44 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_pieces.cpp">
       <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BlackMovementGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BoardDisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\JumpMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RedMovementGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RegularMovement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Tile.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_BoardDisplay.cpp">
       <Filter>Generated Files</Filter>
@@ -45,27 +75,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_BoardDisplay.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="BoardDisplay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="checkers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="GameManager.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="Checkers.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="pieces.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="BoardDisplay.h">
+    <CustomBuild Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BoardDisplay.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -73,10 +91,37 @@
     <ClInclude Include="GeneratedFiles\ui_Checkers.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="TileDisplay.h">
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="checkers.hpp">
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\JumpMovement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Movement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Player.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RedMovementGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RegularMovement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\GameManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\TileDisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BlackMovementGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Board.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

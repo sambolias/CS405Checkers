@@ -4,8 +4,10 @@
 #include <ostream>
 #include <iostream>
 #include <vector>
-#include "checkers.hpp"
 #include <utility>
+#include "Game.hpp"
+#include "Board.hpp"
+
 
 extern class BoardDisplay;
 
@@ -13,11 +15,10 @@ class GameManager
 {
 public:
 	bool moved = false;
-	std::vector<std::pair<int, int>> moves;
 	bool playing;
 	BoardDisplay* display;
 	Game game;
-
+	Board board;
 	GameManager(BoardDisplay* display_) : display(display_), playing(false) {}
 
 	void startNewGame();
