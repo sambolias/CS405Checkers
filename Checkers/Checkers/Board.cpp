@@ -39,10 +39,10 @@ vector<vector<char>> Board::GetBoardAsMatrix()
 	int index = 0;
 	for (int row = 0; row < 8; ++row)
 	{
-		int columnOffset = row % 2;
+		int columnOffset = !(row % 2);
 		for (int column = columnOffset; column < 8; column += 2)
 		{
-			board[row][column] = _board[index++];
+			board[column][row] = _board[index++];
 		}
 	}
 	return board;
