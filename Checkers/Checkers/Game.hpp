@@ -19,7 +19,7 @@ public:
 	const int BLACK_TURN;
     Game();
 	void TakeNextTurn();
-	Board & GetBoard();
+	std::vector<std::vector<char>> GetBoard();
 	bool IsOver();
 	int GetTurn();
 };

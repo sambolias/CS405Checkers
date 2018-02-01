@@ -30,9 +30,9 @@ void Game::TakeNextTurn()
 	}
 }
 
-Board & Game::GetBoard()
+vector<vector<char>> Game::GetBoard()
 {
-	return _board;
+	return _board.GetBoardAsMatrix();
 }
 
 int Game::GetTurn()

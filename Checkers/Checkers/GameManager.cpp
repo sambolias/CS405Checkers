@@ -22,7 +22,7 @@ std::vector<std::vector<char>> generateBoard()
 void GameManager::startNewGame()
 {
 	playing = true;
-	display->displayPieces(game.GetBoard().GetBoardAsMatrix());
+	display->displayPieces(game.GetBoard());
 
 	while (playing)
 	{
@@ -32,8 +32,7 @@ void GameManager::startNewGame()
 			if (game.IsOver())
 				break;
 
-			auto board = game.GetBoard();
-			display->displayPieces(board.GetBoardAsMatrix());
+			display->displayPieces(game.GetBoard());
 			moved = false;
 			/*if(!game.getPlayer().comp)	//only wait for move if not computer player
 				moved = false;

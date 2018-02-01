@@ -6,7 +6,6 @@
 #include <vector>
 #include <utility>
 #include "Game.hpp"
-#include "Board.hpp"
 
 
 extern class BoardDisplay;
@@ -18,7 +17,6 @@ public:
 	bool playing;
 	BoardDisplay* display;
 	Game game;
-	Board board;
 	GameManager(BoardDisplay* display_) : display(display_), playing(false) {}
 
 	void startNewGame();

@@ -1,4 +1,13 @@
 ﻿  BoardDisplay.cpp
-c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(12): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(11): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+  GameManager.cpp
+c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(11): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+  Tile.cpp
+c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(11): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+  main.cpp
+c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(11): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+  moc_BoardDisplay.cpp
+c:\users\frank's laptop\desktop\programming\school\cs405-intro-to-ai\cs405checkers\checkers\checkers\GameManager.h(11): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+  Generating Code...
   Checkers.vcxproj -> C:\Users\Frank's Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\x64\Debug\Checkers.exe
   Checkers.vcxproj -> C:\Users\Frank's Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\x64\Debug\Checkers.pdb (Full PDB)
