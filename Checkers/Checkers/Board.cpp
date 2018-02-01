@@ -33,6 +33,7 @@ vector<char> & Board::GetBoard()
     return _board;
 }
 
+// Converts the internal board to the one we use for display. 
 vector<vector<char>> Board::GetBoardAsMatrix()
 {
 	vector<vector<char>> board(8, vector<char>(8,Board::INVALID_SQUARE));
