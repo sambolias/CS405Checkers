@@ -42,7 +42,7 @@ void BoardDisplay::displayPieces(std::vector<std::vector<char>> board)
 		{
 			// todo update this for whatever type of board is being passed in, but it should work as is
 			char type = board[x][y];
-			if (type == Board::EMPTY)
+			if (type == Board::EMPTY || type == Board::INVALID_SQUARE)
 			{
 				tiles[x][y]->removePiece();
 			}
