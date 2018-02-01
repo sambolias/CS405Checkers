@@ -33,6 +33,21 @@ vector<char> & Board::GetBoard()
     return _board;
 }
 
+vector<vector<char>> Board::GetBoardAsMatrix()
+{
+	vector<vector<char>> board(8, vector<char>(8,Board::INVALID_SQUARE));
+	int index = 0;
+	for (int row = 0; row < 8; ++row)
+	{
+		int columnOffset = row % 2;
+		for (int column = columnOffset; column < 8; column += 2)
+		{
+			board[row][column] = _board[index++];
+		}
+	}
+	return board;
+}
+
 char & Board::operator[](int index)
 {
     return _board[index];

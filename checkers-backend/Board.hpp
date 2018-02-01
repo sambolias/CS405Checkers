@@ -12,6 +12,7 @@ public:
     std::vector<char> & GetBoard();
     char & operator[](int index);
     void Print();
+    std::vector<std::vector<char>> GetBoardAsMatrix();
     const static char INVALID_SQUARE;
     const static char EMPTY;
     const static char RED;
