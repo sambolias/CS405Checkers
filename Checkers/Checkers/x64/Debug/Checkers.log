@@ -1,4 +1,3 @@
-﻿  main.cpp
-c:\users\deskj\documents\visual studio 2017\projects\checkers\checkers\GameManager.h(8): warning C4091: 'extern ': ignored on left of 'BoardDisplay' when no variable is declared
+﻿  checkers.cpp
   Checkers.vcxproj -> C:\Users\deskj\documents\visual studio 2017\Projects\Checkers\x64\Debug\Checkers.exe
   Checkers.vcxproj -> C:\Users\deskj\documents\visual studio 2017\Projects\Checkers\x64\Debug\Checkers.pdb (Full PDB)

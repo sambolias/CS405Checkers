@@ -14,7 +14,7 @@ class BoardDisplay : public QMainWindow
 {
 	Q_OBJECT
 private:
-	virtual QSize sizeHint() const { return QSize(2400, 1400); }
+	virtual QSize sizeHint() const { return QSize(1200, 700); }
 
 public slots:
 	void start();

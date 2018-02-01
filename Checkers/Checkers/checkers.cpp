@@ -183,7 +183,7 @@ vector<char> Board::getTranslatedArray(vec2 from, vec2 to) const
     }
     return translated;
 }
-matrix Board::getBoard()
+matrix  Board::getBoard()
 {
     return squares;
 }
@@ -194,7 +194,9 @@ enum class COLOR { RED, BLACK };
 Game::Game()
 {  
     players.push_back(Player(int(COLOR::RED)));
+	players[0].comp = true;	//hardcode 1st player to computer
     players.push_back(Player(int(COLOR::BLACK)));
+	players[1].comp = true;	//hardcode 2nd player to computer
     board = Board(players);
 }
 void Game::draw()
@@ -258,19 +260,51 @@ void Game::calculateMoves()
 		gameOver = true;
 		return;
 	}
-	//otherwise choose random move
-	int choice = rand() % moves.size();
-	//TODO when jump logic goes in 
-	//taken pieces need removed at this point
-	players[turn].selectMove(choice);
-	board.updateBoard(moves[choice]);
+	/*
+	if (players[turn].comp)
+	{
+		//otherwise choose random move
+		int choice = rand() % moves.size();
+		//TODO when jump logic goes in 
+		//taken pieces need removed at this point
+		players[turn].selectMove(choice);
+		board.updateBoard(moves[choice]);
+	}*/
 }
 
 
 
 bool Game::selectMove(std::pair<int, int> from, std::pair<int, int> to)
 {
-	return false;
+	vector<char> translated = translatedBoard(from, to);
+	if(translated.size() == 0)
+		return false;
+
+	bool good = false;
+	int move = checkMove(translated);
+	if (move > -1)
+	{
+		//TODO when jump logic goes in 
+		//taken pieces need removed at this point
+		players[turn].selectMove(move);
+		board.updateBoard(moves[move]);
+		good = true;
+	}
+	return good;
+}
+
+void Game::chooseRandom()
+{
+	if (moves.size())
+	{
+		//otherwise choose random move
+		int choice = rand() % moves.size();
+		//TODO when jump logic goes in 
+		//taken pieces need removed at this point
+		players[turn].selectMove(choice);
+		board.updateBoard(moves[choice]);
+		//system("sleep 1");
+	}
 }
 
 void Game::nextTurn()
@@ -280,9 +314,79 @@ void Game::nextTurn()
 	else turn = 0;
 }
 
-std::vector<std::vector<char>> Game::getBoard()
+std::vector<char> Game::translatedBoard(std::pair<int, int> from, std::pair<int, int> to)
+{
+	vector<vector<char>> orig = board.getBoardCopy();
+	char color;
+	bool valid = true;
+
+	if (players[turn].color == 0)
+		color = 'r';
+	else
+		color = 'b';
+
+	if (orig[from.first][from.second] == color)
+		orig[from.first][from.second] = '-';	//move piece off
+	else
+		return vector<char>();
+
+	if (orig[to.first][to.second] == '-')
+		orig[to.first][to.second] = color;	//move piece on
+	else
+		return vector<char>();
+
+	vector<char> trans = convertBoard(orig);
+
+	return trans;
+
+}
+
+int Game::checkMove(std::vector<char>& move)
+{
+	int i = 0;
+	bool found = false;
+	for ( i; i < moves.size(); i++)
+	{
+		if (moves[i] == move)
+		{
+			found = true;
+			break;
+		}
+	}
+	if (found)
+		return i;
+	else
+		return -1;
+}
+
+
+std::vector<std::vector<char>>  Game::getBoard()
 {
 	return board.getBoard();
+}
+
+std::vector<std::vector<char>> Board::getBoardCopy()
+{
+	return squares;
+}
+
+std::vector<char> Game::convertBoard(std::vector<std::vector<char>> orig)
+{
+	vector<char> converted;
+	for (int row = 0; row < 8; row++)
+	{
+		int offset = (row % 2) ? 1 : 0;
+		for (int col = offset; col < 8; col++)
+		{
+			converted.push_back(board.getBoard()[row][col]);
+		}
+	}
+	return converted;
+}
+
+Player & Game::getPlayer()
+{
+	return players[turn];
 }
 
 /*int main()

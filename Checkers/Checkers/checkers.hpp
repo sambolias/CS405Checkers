@@ -16,6 +16,7 @@ class Board;
 class Player
 {
 public: //bad
+	bool comp = false;
     int color;                  //from              //to
     std::vector<std::pair<std::pair<int,int>, std::pair<int,int>>> moves;
 
@@ -38,7 +39,8 @@ public:
     void updateBoard(const std::vector<char> &move);
     bool checkMove(std::pair<int, int> from, std::pair<int, int> to) const;
     std::vector<char> getTranslatedArray(std::pair<int, int> from, std::pair<int, int> to) const;
-    std::vector<std::vector<char>> getBoard();
+    std::vector<std::vector<char>>  getBoard();
+	std::vector<std::vector<char>> getBoardCopy();
     //std::vector<char> getArray();
 };
 
@@ -64,9 +66,13 @@ public:
 	void calculateMoves();
 	//we may want to make this return an int to indicate bad move or incomplete move (jumping)
 	bool selectMove(std::pair<int, int> from, std::pair<int, int> to);
+	void chooseRandom();
 	void nextTurn();
-
-	std::vector<std::vector<char>> getBoard();
+	std::vector<char> translatedBoard(std::pair<int, int> from, std::pair<int, int> to);
+	int checkMove(std::vector<char> & move);
+	std::vector<std::vector<char>>  getBoard();
+	std::vector<char> convertBoard(std::vector<std::vector<char>> orig);
+	Player & getPlayer();
 
 };
 
