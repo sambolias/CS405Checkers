@@ -7,10 +7,27 @@ BoardDisplay::BoardDisplay()
 	widget = new QWidget(this);
 	this->setCentralWidget(widget);
 
+	// todo when move is submitted the move is passed to text file
+	moveText = new QLineEdit(this);
+	moveText->setFixedSize(300, 600);
+	
 	// menu bar, mostly for later in the project when more options such as loading are required
 	QMenu* menuGame = new QMenu("Game");
 	QAction* startAction = menuGame->addAction("Start");
 	connect(startAction, SIGNAL(triggered()), this, SLOT(start()));
+
+	// save game
+	QAction* saveAction = menuGame->addAction("Save");
+	connect(saveAction, SIGNAL(triggered()), this, SLOT(saveGame()));
+
+	// load game
+	QAction* loadAction = menuGame->addAction("Load");
+	connect(saveAction, SIGNAL(triggered()), this, SLOT(loadGame()));
+
+	//exit application todo check to save or export your files
+	QAction* exitAction = menuGame->addAction("Exit");
+	connect(exitAction, SIGNAL(triggered()), this, SLOT(exitGame()));
+
 	QMenuBar* mainMenu = this->menuBar();
 	mainMenu->addMenu(menuGame);
 }
@@ -60,4 +77,20 @@ void BoardDisplay::start()
 {
 	std::cout << "game started" << std::endl;
 	manager->startNewGame();
+}
+
+void BoardDisplay::exitGame()
+{
+	exit(1);
+}
+
+
+void BoardDisplay::saveGame()
+{
+
+}
+
+void BoardDisplay::loadGame()
+{
+	
 }

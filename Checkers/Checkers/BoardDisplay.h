@@ -6,10 +6,12 @@
 #include "Board.hpp"
 #include <QWidget>
 #include <QAction>
+#include <QLineEdit>
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
 #include <cctype>
+#include <fstream>
 
 class BoardDisplay : public QMainWindow
 {
@@ -19,12 +21,15 @@ private:
 
 public slots:
 	void start();
+	void exitGame();
+	void saveGame();
+	void loadGame();
 
 public:
 	TileDisplay * tiles[8][8];
 	QWidget* widget;
 	GameManager * manager;
-
+	QLineEdit* moveText; // text of the moves that have transpired
 	BoardDisplay();
 
 	void display();
