@@ -8,18 +8,12 @@
 class JumpMovement : public Movement
 {
 private:
-    int _start;
-    int _end;
     std::map<int,bool> _jumpedPieces;
     bool isValidJumpedPiece(int jumpedPiece);
 public:
-    JumpMovement(int start, int end) : _start(start), _end(end) {}
+    JumpMovement(int start, int end) : Movement(start, end) {}
     JumpMovement(int start, int end, int jumpedPiece);
-    int GetStartPosition();
-    int GetEndPosition();
     std::map<int,bool> GetJumpedPieces();
-    void SetStartPosition(int startPosition);
-    void SetEndPosition(int endPosition);
     void AddJumpedPiece(int jumpedPiece);
     void AddJumpedPieces(std::map<int,bool> && jumpedPieces);
     bool ContainsJumpedPiece(int jumpedPiece);

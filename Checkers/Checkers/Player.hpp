@@ -9,14 +9,15 @@
 
 class Player
 {
-private:
+protected:
     char _color;
     bool _moved;
     MovementGenerator _movementGenerator;
 public:
-    Player(char color);
+    Player(char color) : _color(color) {}
     std::vector<std::shared_ptr<Movement>> GenerateMoves(Board & board);
-    Board & TakeTurn(Board & board, std::vector<std::shared_ptr<Movement>> & moves);
+    virtual Board & TakeTurn(Board & board, std::vector<std::shared_ptr<Movement>> & moves) = 0;
+    virtual bool ValidMove(std::vector<std::shared_ptr<Movement>> & moves) = 0;
 };
 
 #endif

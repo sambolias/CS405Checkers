@@ -33,12 +33,12 @@ public:
 	TileDisplay * tiles[8][8];
 	QWidget* widget;
 	GameManager * manager;
-	QTextEdit* textDisplay;
+	static QTextEdit* textDisplay;
 
 	BoardDisplay();
 
 	void display();
 	void displayPieces(std::vector<std::vector<char>> board);
-	void displayText(std::string text);
+	static void displayText(std::string text);
 };
 #endif

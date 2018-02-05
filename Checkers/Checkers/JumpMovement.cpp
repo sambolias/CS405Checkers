@@ -4,7 +4,7 @@ using std::map;
 using std::string;
 using std::to_string;
 
-JumpMovement::JumpMovement(int start, int end, int jumpedPiece) : JumpMovement(start,end)
+JumpMovement::JumpMovement(int start, int end, int jumpedPiece) : JumpMovement(start, end)
 {
     AddJumpedPiece(jumpedPiece);
 }
@@ -47,29 +47,9 @@ string JumpMovement::ToString()
 	return returnString;
 }
 
-int JumpMovement::GetStartPosition()
-{
-    return _start;
-}
-
-int JumpMovement::GetEndPosition()
-{
-    return _end;
-}
-
 map<int,bool> JumpMovement::GetJumpedPieces()
 {
     return _jumpedPieces;
-}
-
-void JumpMovement::SetStartPosition(int startPosition)
-{
-    _start = startPosition;
-}
-
-void JumpMovement::SetEndPosition(int endPosition)
-{
-    _end = endPosition;
 }
 
 void JumpMovement::AddJumpedPiece(int jumpedPiece)

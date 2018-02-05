@@ -1,8 +1,6 @@
 #include "GameManager.h"
 #include "BoardDisplay.h"
-
-#include <utility>
-#include <QApplication>
+#include "ComputerPlayer.h"
 
 // temporary to show use of gui
 std::vector<std::vector<char>> generateBoard()
@@ -21,35 +19,43 @@ std::vector<std::vector<char>> generateBoard()
 
 void GameManager::startNewGame()
 {
-	playing = true;
+	std::shared_ptr<Player> playerOne = std::make_shared<HumanPlayer>(Board::RED);
+	std::shared_ptr<Player> playerTwo = std::make_shared<ComputerPlayer>(Board::BLACK);
+	Game game = Game(playerOne, playerTwo);
+
 	display->displayPieces(game.GetBoard());
+	playing = true;
 
 	while (playing)
 	{
-		if (moved)
-		{
-			game.TakeNextTurn();
-			if (game.IsOver())
-				break;
+		QApplication::processEvents();
 
-			display->displayPieces(game.GetBoard());
-			moved = false;
-			/*if(!game.getPlayer().comp)	//only wait for move if not computer player
-				moved = false;
+		// if a human is playing, waits for their move and stores it in the HumanPlayer object
+		Player& player = game.GetCurrentPlayer();
+		if (typeid(player) == typeid(HumanPlayer))
+		{
+			HumanPlayer& human = dynamic_cast<HumanPlayer&>(player);
+			human.move_start = move_start;
+			human.move_end = move_end;
+			// wait until a move is selected
+			if (!moved)
+			{
+				continue;
+			}
 			else
 			{
-				game.chooseRandom();
-				game.nextTurn();
-			}*/
-			
+				moved = false;
+			}
 		}
+		game.TakeNextTurn();
+		if (game.IsOver())
+			break;
 
-		QApplication::processEvents();	
-
+		display->displayPieces(game.GetBoard());
 	}
 
 	std::string winner = ((game.GetTurn() == game.RED_TURN) ? "BLACK" : "RED");
-	display->displayText(winner + " is the winner!");
+	BoardDisplay::displayText(winner + " is the winner!");
 	//game over clears board for now
 	display->displayPieces(generateBoard());
 }
@@ -57,20 +63,20 @@ void GameManager::startNewGame()
 
 void GameManager::onTileClicked(int x, int y)
 {
-	std::cout << x << ", " << y << std::endl;
-	moved = true;
-	/*if (moves.size() == 0)
+	// convert the x,y tile grid index to the boards index to check for valid movement
+	int board_index = (x + y * 8) / 2;
+	if (!pieceSelected)
 	{
-		moves.push_back(std::pair<int, int>(x, y));
+		move_start = board_index;
+		pieceSelected = true;
+		std::cout << "Piece selected at index " << board_index << std::endl;
 	}
-	else if (moves.size() == 1)
+	else
 	{
-		moves.push_back(std::pair<int, int>(x, y));
-		moved = game.selectMove(moves[0], moves[1]);
-		std::vector<std::vector<char>> matrix = game.getBoard();
-		display->displayPieces(matrix);
-		game.nextTurn();
-		moves.clear();
-	}*/
-	
+		move_end = board_index;
+		pieceSelected = false;
+		moved = true;
+		std::cout << "End location set to " << board_index << std::endl;
+	}
+	std::cout << x << ", " << y << std::endl;
 }

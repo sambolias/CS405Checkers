@@ -1,5 +1,7 @@
 #include "BoardDisplay.h"
 
+QTextEdit * BoardDisplay::textDisplay;
+
 BoardDisplay::BoardDisplay()
 {
 	manager = new GameManager(this);
@@ -76,7 +78,7 @@ void BoardDisplay::displayPieces(std::vector<std::vector<char>> board)
 
 void BoardDisplay::displayText(std::string text)
 {
-	textDisplay->append(QString::fromStdString(text));
+	BoardDisplay::textDisplay->append(QString::fromStdString(text));
 }
 
 void BoardDisplay::start()

@@ -6,11 +6,8 @@
 
 class RegularMovement : public Movement
 {
-private:
-    int _start;
-    int _end;
 public:
-    RegularMovement(int start, int end) : _start(start), _end(end) {}
+    RegularMovement(int start, int end) : Movement(start, end) {}
     Board & ExecuteMovement(Board & board) override;
     std::string ToString() override;
 };
