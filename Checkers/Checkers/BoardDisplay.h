@@ -6,33 +6,39 @@
 #include "Board.hpp"
 #include <QWidget>
 #include <QAction>
-#include <QLineEdit>
+#include <QTextEdit>
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
 #include <cctype>
 #include <fstream>
+#include <iostream>
 
 class BoardDisplay : public QMainWindow
 {
 	Q_OBJECT
 private:
-	virtual QSize sizeHint() const { return QSize(1200, 700); }
+	virtual QSize sizeHint() const { return QSize(1000, 700); }
+	const int V_BUFFER = 100;
+	const int H_BUFFER = 75;
+	const int TILE_SIZE = 64;
 
 public slots:
 	void start();
-	void exitGame();
-	void saveGame();
-	void loadGame();
+	void save();
+	void load();
+	void quit();
 
 public:
 	TileDisplay * tiles[8][8];
 	QWidget* widget;
 	GameManager * manager;
-	QLineEdit* moveText; // text of the moves that have transpired
+	QTextEdit* textDisplay;
+
 	BoardDisplay();
 
 	void display();
 	void displayPieces(std::vector<std::vector<char>> board);
+	void displayText(std::string text);
 };
 #endif
