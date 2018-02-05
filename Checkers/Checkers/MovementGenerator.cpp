@@ -94,9 +94,9 @@ vector<shared_ptr<Movement>> MovementGenerator::generateJumpMovements(vector<sha
 
 vector<shared_ptr<Movement>> MovementGenerator::generateRegularMovements(vector<shared_ptr<Movement>> & movements, Board & board, int startPoint, shared_ptr<MovementList> & movementList)
 {
-	if (movementList->HasLegalRegularMoves(startPoint)) //(_legalRegularMoves.count(startPoint))
+	if (movementList->HasLegalRegularMoves(startPoint))
 	{
-		auto movementEndPoints = movementList->GetLegalRegularMoves(startPoint); //_legalRegularMoves[startPoint];
+		auto movementEndPoints = movementList->GetLegalRegularMoves(startPoint);
 		for (auto endPoint : movementEndPoints)
 		{
 			if (board[endPoint] == Board::EMPTY)
@@ -109,28 +109,6 @@ vector<shared_ptr<Movement>> MovementGenerator::generateRegularMovements(vector<
 	return movements;
 }
 
-// finds the common space between a player's jump point and the opponent's starting position
-// ex. for RED to jump from 1-10, there needs to be an opponent at space 5
-int MovementGenerator::getJumpEndPoint(int playerStartPoint, int opponentStartPoint, shared_ptr<MovementList> & movementList)
-{
-    if (movementList->HasLegalJumpMoves(playerStartPoint) && movementList->HasLegalRegularMoves(opponentStartPoint)) //(_legalJumpMoves.count(playerStartPoint) && _legalRegularMoves.count(opponentStartPoint))
-    {
-		auto jumpEndPoints = movementList->GetLegalJumpMoves(playerStartPoint); //_legalJumpMoves[playerStartPoint];
-		auto opponentEndPoints = movementList->GetLegalRegularMoves(opponentStartPoint); //_legalRegularMoves[opponentStartPoint];
-        for (auto jumpEndPoint : jumpEndPoints)
-        {
-            for (auto opponentEndPoint : opponentEndPoints)
-            {
-                if (jumpEndPoint == opponentEndPoint)
-                {
-                    return jumpEndPoint;
-                }
-            }
-        }
-    }
-    return -1;
-}
-
 vector<shared_ptr<Movement>> & MovementGenerator::generateJumps(vector<shared_ptr<Movement>> & jumpMoves,
                                                                 Board & board, 
                                                                 shared_ptr<JumpMovement> jumpMovement,
@@ -138,14 +116,14 @@ vector<shared_ptr<Movement>> & MovementGenerator::generateJumps(vector<shared_pt
 {
 	// starting from the end of the last jump
     int startPosition = jumpMovement->GetEndPosition(); 
-    if (movementList->HasLegalRegularMoves(startPosition)) //(_legalRegularMoves.count(startPosition))
+	bool anotherJumpExists = false;
+    if (movementList->HasLegalRegularMoves(startPosition))
     {
-		auto postionsOneAway = movementList->GetLegalRegularMoves(startPosition); //_legalRegularMoves[startPosition];
-		bool anotherJumpExists = false;
+		auto postionsOneAway = movementList->GetLegalRegularMoves(startPosition);
         for (auto positionOneAway : postionsOneAway)
         {
             // check if position one away from start is opponent and if it hasn't been jumped already
-            if (board[positionOneAway] == _opponentColor && jumpMovement->ContainsJumpedPiece(positionOneAway) == false)
+            if (tolower(board[positionOneAway]) == _opponentColor && jumpMovement->ContainsJumpedPiece(positionOneAway) == false)
             {
                 int opponentPosition = positionOneAway;
                 int jumpEndPoint = getJumpEndPoint(startPosition, opponentPosition, movementList);
@@ -159,10 +137,32 @@ vector<shared_ptr<Movement>> & MovementGenerator::generateJumps(vector<shared_pt
                 }
             }
         }
-		if (anotherJumpExists == false)
-		{
-			jumpMoves.push_back(jumpMovement);
-		}
     }
+	if (anotherJumpExists == false)
+	{
+		jumpMoves.push_back(jumpMovement);
+	}
     return jumpMoves; 
+}
+
+// finds the common space between a player's jump point and the opponent's starting position
+// ex. for RED to jump from 1-10, there needs to be an opponent at space 5
+int MovementGenerator::getJumpEndPoint(int playerStartPoint, int opponentStartPoint, shared_ptr<MovementList> & movementList)
+{
+	if (movementList->HasLegalJumpMoves(playerStartPoint) && movementList->HasLegalRegularMoves(opponentStartPoint))
+	{
+		auto jumpEndPoints = movementList->GetLegalJumpMoves(playerStartPoint); 
+		auto opponentEndPoints = movementList->GetLegalRegularMoves(opponentStartPoint);
+		for (auto jumpEndPoint : jumpEndPoints)
+		{
+			for (auto opponentEndPoint : opponentEndPoints)
+			{
+				if (jumpEndPoint == opponentEndPoint)
+				{
+					return jumpEndPoint;
+				}
+			}
+		}
+	}
+	return -1;
 }
