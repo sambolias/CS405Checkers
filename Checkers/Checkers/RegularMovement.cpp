@@ -1,6 +1,6 @@
 #include "RegularMovement.hpp"
-#include <iostream>
-using std::cout;
+using std::string;
+using std::to_string;
 
 Board & RegularMovement::ExecuteMovement(Board & board)
 {
@@ -9,7 +9,7 @@ Board & RegularMovement::ExecuteMovement(Board & board)
     return board;
 }
 
-void RegularMovement::Print()
+string RegularMovement::ToString()
 {
-    cout << "Regular Movement (start, end): (" << _start << ", " << _end << ")\n";
+    return "Regular Movement (start - end): " + to_string(_start) + " - " + to_string(_end);
 }

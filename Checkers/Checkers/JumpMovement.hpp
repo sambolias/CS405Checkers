@@ -3,6 +3,7 @@
 
 #include "Movement.hpp"
 #include <map>
+#include <string>
 
 class JumpMovement : public Movement
 {
@@ -23,7 +24,7 @@ public:
     void AddJumpedPieces(std::map<int,bool> && jumpedPieces);
     bool ContainsJumpedPiece(int jumpedPiece);
     Board & ExecuteMovement(Board & board) override;
-    void Print() override;
+    std::string ToString() override;
 };
 
 #endif

@@ -28,6 +28,21 @@ Board::Board()
     };
 }
 
+Board & Board::UpdateKings()
+{
+	for (int i = 0; i < 4; ++i)
+	{
+		if (_board[i] == Board::BLACK)
+			_board[i] = Board::K_BLACK;
+	}
+	for (int i = 31; i >= 28; --i)
+	{
+		if (_board[i] == Board::RED)
+			_board[i] = Board::K_RED;
+	}
+	return *this;
+}
+
 vector<char> & Board::GetBoard()
 {
     return _board;

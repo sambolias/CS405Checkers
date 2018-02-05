@@ -1,7 +1,8 @@
 #include "JumpMovement.hpp"
 #include <iostream>
 using std::map;
-using std::cout;
+using std::string;
+using std::to_string;
 
 JumpMovement::JumpMovement(int start, int end, int jumpedPiece) : JumpMovement(start,end)
 {
@@ -21,28 +22,29 @@ Board & JumpMovement::ExecuteMovement(Board & board)
     	board[key] = Board::EMPTY;
     }
     board[_end] = board[_start];
-    board[_start] = Board::EMPTY;
+	board[_start] = Board::EMPTY;
     return board;
 }
 
-void JumpMovement::Print()
+string JumpMovement::ToString()
 {
-    cout << "Jump Movement (start, end): (" << _start << ", " << _end << ")\n";
-    cout << "Jumped Pieces: ";
+	string returnString;
+	returnString = "Jump Movement (start - [jumped pieces] - end): " + to_string(_start) + " - [";
     bool firstPiece = true;
     for (const auto jumpedPiece : _jumpedPieces)
     {
         if (firstPiece == false)
         {
-            cout << ", " << jumpedPiece.first;
+			returnString += ", " + to_string(jumpedPiece.first);
         }
         else
         {
-            cout << jumpedPiece.first;
+			returnString += to_string(jumpedPiece.first);
             firstPiece = false;
         }
     }
-    cout << '\n';
+	returnString += "] - " + to_string(_end);
+	return returnString;
 }
 
 int JumpMovement::GetStartPosition()

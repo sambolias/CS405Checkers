@@ -2,6 +2,7 @@
 #define REGULAR_MOVEMENT_H_INCLUDED
 
 #include "Movement.hpp"
+#include <string>
 
 class RegularMovement : public Movement
 {
@@ -11,7 +12,7 @@ private:
 public:
     RegularMovement(int start, int end) : _start(start), _end(end) {}
     Board & ExecuteMovement(Board & board) override;
-    void Print() override;
+    std::string ToString() override;
 };
 
 #endif

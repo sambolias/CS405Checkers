@@ -69,16 +69,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BlackMovementGenerator.cpp" />
+    <ClCompile Include="BlackMovementList.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Board.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BoardDisplay.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Game.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\GameManager.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\JumpMovement.cpp" />
+    <ClCompile Include="KingMovementList.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\main.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementGenerator.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementList.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Player.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RedMovementGenerator.cpp" />
+    <ClCompile Include="RedMovementList.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RegularMovement.cpp" />
     <ClCompile Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Tile.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_BoardDisplay.cpp">
@@ -117,15 +119,17 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_UITOOLS_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtUiTools" "-I$(QTDIR)\include\QtWidgets"</Command>
     </CustomBuild>
-    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\BlackMovementGenerator.hpp" />
+    <ClInclude Include="BlackMovementList.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Board.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Game.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\GameManager.h" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\JumpMovement.hpp" />
+    <ClInclude Include="KingMovementList.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Movement.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementGenerator.hpp" />
+    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\MovementList.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\Player.hpp" />
-    <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RedMovementGenerator.hpp" />
+    <ClInclude Include="RedMovementList.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\RegularMovement.hpp" />
     <ClInclude Include="..\..\..\..\..\..\..\..\Frank%27s Laptop\Desktop\Programming\School\CS405-Intro-to-AI\CS405Checkers\Checkers\Checkers\TileDisplay.h" />
     <ClInclude Include="GeneratedFiles\ui_Checkers.h" />
