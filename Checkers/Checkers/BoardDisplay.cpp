@@ -30,7 +30,7 @@ BoardDisplay::BoardDisplay()
 	textDisplay = new QTextEdit(this);
 	textDisplay->setFontPointSize(10);
 	textDisplay->setReadOnly(true);
-	textDisplay->setGeometry((H_BUFFER * 2) + (TILE_SIZE * 8), V_BUFFER + 20, 250, TILE_SIZE * 8);
+	textDisplay->setGeometry((H_BUFFER * 2) + (TILE_SIZE * 8), V_BUFFER + 20, 200, TILE_SIZE * 8);
 }
 
 void BoardDisplay::display()
