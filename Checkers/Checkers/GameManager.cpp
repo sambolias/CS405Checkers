@@ -56,8 +56,6 @@ void GameManager::startNewGame()
 
 	std::string winner = ((game.GetTurn() == game.RED_TURN) ? "BLACK" : "RED");
 	BoardDisplay::displayText(winner + " is the winner!");
-	//game over clears board for now
-	display->displayPieces(generateBoard());
 }
 
 
