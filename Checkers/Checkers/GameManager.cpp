@@ -53,7 +53,7 @@ void GameManager::startNewGame()
 
 		display->displayPieces(game.GetBoard());
 	}
-
+	playing = false;
 	std::string winner = ((game.GetTurn() == game.RED_TURN) ? "BLACK" : "RED");
 	BoardDisplay::displayText(winner + " is the winner!");
 }
